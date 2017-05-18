@@ -3,8 +3,6 @@ const server = new Hapi.Server()
 
 const routes = require('./routes/routes')
 
-require('./routes/routes');
-
 server.connection({ port: 8080, host: 'localhost' })
 
 server.start((err) => {
@@ -17,3 +15,4 @@ server.start((err) => {
 routes.map((route) => {
     server.route(route)
 })
+

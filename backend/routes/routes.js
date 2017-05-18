@@ -1,17 +1,19 @@
+const books = require('../controllers/books')
+
 module.exports = [
     {
         method: 'GET',
-        path: '/',
-        handler: function (req, rep) {
-            rep('Hello from root!!!')
-        }
+        path: '/api/books',
+        handler: books.getAllBooks
     },
     {
         method: 'GET',
-        path: '/hello',
-        handler: function (req, rep) {
-            rep('This is helloooo!!!')
-        }
-
+        path: '/api/books/{name}',
+        handler: books.getBookByName
     }
+    // {
+    //     method: 'POST',
+    //     path: '/api/books',
+    //     handler: postBook
+    // }
 ]
