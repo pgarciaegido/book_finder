@@ -1,0 +1,11 @@
+<h1>Questionnaire</h1>
+<div>
+    <h3>{{questions[current].title}}</h3>
+    <form>
+        <label *ngFor="let answer of questions[current].answers">
+            <input (click)="results[current] = answer" type="radio" name="result">
+            {{answer}}
+        </label>
+    </form>
+    <button (click)="nextQuestion()">{{button}}</button>
+</div>
