@@ -7,5 +7,6 @@
             {{answer}}
         </label>
     </form>
-    <button (click)="nextQuestion()">{{button}}</button>
+    <button *ngIf="!lastQuestion" (click)="nextQuestion()">Next question</button>
+    <button *ngIf="lastQuestion" (click)="endQuestionnaire()">Get results</button>
 </div>

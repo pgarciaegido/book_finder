@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-questionnaire',
@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class QuestionnaireComponent {
     current: number;
     questions;
-    button: string;
+    lastQuestion = false;
     results: string[] = [];
 
     constructor() {
@@ -23,19 +23,21 @@ export class QuestionnaireComponent {
                 answers: ['Classics', 'New Books']
             }
         ];
-        this.button = 'Next question';
     }
+
+    // tslint:disable-next-line:member-ordering
+    @Output() questionnaireDone = new EventEmitter<boolean>();
 
     nextQuestion() {
         console.log(this.results);
         if (this.current === this.questions.length - 2) {
-            this.button = 'Get results!';
+            this.lastQuestion = true;
         }
-        else if (this.current === this.questions.length - 1) {
-            return;
-        }
-        console.log('passing.....')
         this.current += 1;
+    }
 
+    endQuestionnaire() {
+        this.questionnaireDone.emit(true);
+        console.log(this.results)
     }
 }

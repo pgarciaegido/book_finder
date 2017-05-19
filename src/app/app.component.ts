@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  qDone = false;
+
+  questionnaireDone(done: boolean) {
+    this.qDone = done;
+  }
 }
