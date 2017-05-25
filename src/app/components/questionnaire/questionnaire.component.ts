@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { ComponentComunicatorService } from '../../services/componentComunicator.service';
 
 @Component({
   selector: 'app-questionnaire',
@@ -11,7 +12,7 @@ export class QuestionnaireComponent {
     lastQuestion = false;
     results: string[] = [];
 
-    constructor() {
+    constructor(private componentComunicatorService: ComponentComunicatorService) {
         this.current = 0;
         this.questions = [
             {
@@ -37,7 +38,7 @@ export class QuestionnaireComponent {
     }
 
     endQuestionnaire() {
+        this.componentComunicatorService.questionnaireSetter(this.results);
         this.questionnaireDone.emit(true);
-        console.log(this.results)
     }
 }

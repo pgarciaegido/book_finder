@@ -8,6 +8,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { QuestionnaireComponent } from './components/questionnaire/questionnaire.component';
 import { ResultsComponent } from './components/results/results.component';
 
+import { ComponentComunicatorService } from './services/componentComunicator.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,9 +20,12 @@ import { ResultsComponent } from './components/results/results.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+  
   ],
-  providers: [],
+  providers: [
+    ComponentComunicatorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
