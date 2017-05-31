@@ -1,3 +1,5 @@
 <app-header></app-header>
-<app-questionnaire *ngIf="!qDone" (questionnaireDone)="questionnaireDone($event)"></app-questionnaire>
-<app-results *ngIf="qDone"></app-results>
+<section class="container">
+    <app-questionnaire *ngIf="!qDone" (questionnaireDone)="questionnaireDone($event)"></app-questionnaire>
+    <app-results *ngIf="qDone"></app-results>
+</section>

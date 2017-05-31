@@ -4,7 +4,7 @@ import { ComponentComunicatorService } from '../../services/componentComunicator
 @Component({
   selector: 'app-questionnaire',
   templateUrl: './questionnaire.component.html',
-  styleUrls: ['./questionnaire.component.css']
+  styleUrls: ['./questionnaire.component.scss']
 })
 export class QuestionnaireComponent {
     current: number;
